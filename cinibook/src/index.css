@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 346 87% 61%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 10% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 10% 12%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 43 96% 56%;
+    --accent-foreground: 240 10% 4%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 10% 16%;
+    --input: 240 10% 16%;
+    --ring: 346 87% 61%;
+
+    --radius: 0.75rem;
+
+    --gold: 43 96% 56%;
+    --cinema-dark: 240 10% 4%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+    background-image: radial-gradient(circle at top right, rgba(225, 29, 72, 0.05), transparent 40%),
+                      radial-gradient(circle at bottom left, rgba(250, 204, 21, 0.05), transparent 40%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.05em;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)];
+  }
+
+  .premium-gradient-text {
+    background: linear-gradient(135deg, #fff, #a1a1aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gold-gradient-text {
+    background: linear-gradient(135deg, hsl(var(--gold)), #fde047);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-premium {
+    @apply relative overflow-hidden transition-all duration-300 font-medium;
+  }
+  
+  .btn-premium::after {
+    content: '';
+    @apply absolute inset-0 bg-white/20 translate-y-[100%] transition-transform duration-300 ease-in-out;
+  }
+  
+  .btn-premium:hover::after {
+    @apply translate-y-0;
+  }
+
+  /* Enhanced Seat Styles */
+  .seat-available {
+    @apply bg-secondary border border-border text-foreground cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(225,29,72,0.4)] hover:border-primary hover:bg-primary/20;
+  }
+  .seat-selected {
+    @apply bg-primary border-primary text-primary-foreground cursor-pointer scale-110 shadow-[0_0_20px_rgba(225,29,72,0.6)] animate-pulse;
+    animation-duration: 2s;
+  }
+  .seat-booked {
+    @apply bg-muted/40 border-transparent text-muted-foreground/50 cursor-not-allowed opacity-50 relative overflow-hidden text-transparent;
+  }
+  .seat-booked::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%);
+    background-size: 200% 200%;
+    animation: shimmer 3s infinite linear;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

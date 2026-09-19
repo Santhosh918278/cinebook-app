@@ -1,6 +1,8 @@
 # CineBook - Complete Movie Reservation System
 
 CineBook is an advanced, production-scale Movie Reservation System built using the **MERN-like stack (MySQL instead of MongoDB)**. Designed with architectural best practices in mind, this project demonstrates full-stack proficiency, deep understanding of relational database design, real-time concurrency control, responsive user interfaces, and robust state management.
+
+
 🔗 ##**Live Demo:**
 [https://cinebook-app-b246.vercel.app](https://cinebook-app-b246.vercel.app)
 
